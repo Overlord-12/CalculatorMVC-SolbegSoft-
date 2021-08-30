@@ -9,9 +9,27 @@
     padding-right: 15px;
 }
 
+.calc-body {
+    height:300px;
+    margin: 0 auto;
+}
+.info-body {
+    float: left;
+}
+.text-info{
+    font-size:20px;
+    margin-top:10%;
+    margin-left:200px;
+    color:red;
+    text-align:center;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
+.calc-body-content {
+    margin-right:200px;
+    float: right;
+}
 .dl-horizontal dt {
     white-space: normal;
 }

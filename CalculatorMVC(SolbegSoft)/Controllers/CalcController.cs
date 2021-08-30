@@ -17,12 +17,35 @@ namespace CalculatorMVC_SolbegSoft_.Controllers
 
 
         [HttpPost]
-        public  ActionResult Index(CalcModel calc,string operation)
+        public  ActionResult Index(CalcModel calc,string calculate)
         {
-            if (operation == "plus") calc.Total = calc.FirstNumb + calc.SecondNumb;
-            if (operation == "minus") calc.Total = calc.FirstNumb - calc.SecondNumb;
-            if (operation == "miltiply") calc.Total = calc.FirstNumb * calc.SecondNumb;
-            if (operation == "division") calc.Total = calc.FirstNumb / calc.SecondNumb;
+            if (calculate == "plus")
+            {
+                calc.Total = calc.FirstNumb + calc.SecondNumb;
+                calc.FirstNumb = calc.Total;
+            }
+            if (calculate == "minus")
+            {
+                calc.Total = calc.FirstNumb - calc.SecondNumb;
+                calc.FirstNumb = calc.Total;
+            }
+            if (calculate == "miltiply")
+            {
+                calc.Total = calc.FirstNumb * calc.SecondNumb;
+                calc.FirstNumb = calc.Total;
+            }
+            if (calculate == "division")
+            {
+                calc.Total = calc.FirstNumb / calc.SecondNumb;
+                calc.FirstNumb = calc.Total;
+            }
+            if(calculate == "clear")
+            {
+                calc.Total = 0;
+                calc.FirstNumb = 0;
+                calc.SecondNumb = 0;
+            }
+               
             return View(calc);
         }
     }
