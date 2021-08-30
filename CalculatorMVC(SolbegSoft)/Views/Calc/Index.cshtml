@@ -1,0 +1,43 @@
+﻿@model  CalculatorMVC_SolbegSoft_.Models.CalcModel
+@{
+    ViewBag.Title = "Calculator";
+}
+
+
+<html>
+<head>
+
+</head>
+<body style="margin:0 auto; text-align:center">
+    <h2>Calculator(SolbegSoft)</h2>
+    <div class="CalcBody">
+
+        @using (Html.BeginForm("/Index", "Calc", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="FirstNumb">Number 1</label>
+                <input style="margin:0 auto" type="text" class="form-control" id="FirstNumb" name="FirstNumb" value="@Model.FirstNumb" />
+            </div>
+
+            <div class="form-group" style="margin:0 auto;">
+                <label for="SecondNumb">Number 2</label>
+                <input style="margin:0 auto" type="text" class="form-control" id="SecondNumb" name="SecondNumb" value="@Model.SecondNumb" />
+            </div>
+
+            <div class="form-group" style="margin:0 auto;">
+                <label for="Total">Total</label>
+                <input style="margin:0 auto" type="text" class="form-control" id="Total" name="Total" value="@Model.Total" />
+            </div>
+            <button type="submit" class="btn btn-info" id="plus" value="plus" name="calculate">+</button>
+            <button type="submit" class="btn btn-info" id="minus" value="minus" name="calculate">-</button>
+            <button type="submit" class="btn btn-info" id="division" value="division" name="calculate">/</button>
+            <button type="submit" class="btn btn-info" id="miltiply" value="miltiply" name="calculate">*</button>
+            <button type="submit" class="btn btn-danger" id="clear" value="clear" name="calculate">Clear</button>
+        }
+
+
+    </div>
+</body>
+</html>
+
+
