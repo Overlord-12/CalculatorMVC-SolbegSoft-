@@ -17,36 +17,38 @@ namespace CalculatorMVC_SolbegSoft_.Controllers
 
 
         [HttpPost]
-        public  ActionResult Index(CalcModel calc,string calculate)
+        public ActionResult Index(CalcModel calc, string calculate)
         {
-            if (calculate == "plus")
+            if(calculate == "calc")
             {
-                calc.Total = calc.FirstNumb + calc.SecondNumb;
-                calc.FirstNumb = calc.Total;
+                char[] сharList = { '+', '-', '*', '/', 'C' };
+                var input = calc.Example;
+                char oper = сharList.First(input.Contains);
+                if (oper == 'C' || oper == 'С')
+                {
+                    calc.Example = "";
+                }
+                double[] nums = input.Split(сharList.ToArray())
+                    .Select(double.Parse)
+                    .ToArray();
+
+                calc.Example = Convert.ToString(CalcModel.Calculation(nums[0], nums[1], oper));
+                var test = CalcModel.Calculation(nums[0], nums[1], oper);
+
+                return View(calc);
             }
-            if (calculate == "minus")
+            else
             {
-                calc.Total = calc.FirstNumb - calc.SecondNumb;
-                calc.FirstNumb = calc.Total;
+                if (calculate == "clear")
+                {
+                    calc.Example = "";
+                    return View(calc);
+                }
+                calc.Example += calculate;
+                    return View(calc);
             }
-            if (calculate == "miltiply")
-            {
-                calc.Total = calc.FirstNumb * calc.SecondNumb;
-                calc.FirstNumb = calc.Total;
-            }
-            if (calculate == "division")
-            {
-                calc.Total = calc.FirstNumb / calc.SecondNumb;
-                calc.FirstNumb = calc.Total;
-            }
-            if(calculate == "clear")
-            {
-                calc.Total = 0;
-                calc.FirstNumb = 0;
-                calc.SecondNumb = 0;
-            }
-               
-            return View(calc);
+           
         }
+      
     }
 }

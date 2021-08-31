@@ -33,6 +33,13 @@
 .dl-horizontal dt {
     white-space: normal;
 }
+.my-button {
+    width: 30px;
+    height: 30px;
+    background: powderblue;
+    color: white;
+    border-radius: 7px;
+}
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
