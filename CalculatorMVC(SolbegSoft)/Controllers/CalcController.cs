@@ -17,9 +17,9 @@ namespace CalculatorMVC_SolbegSoft_.Controllers
 
 
         [HttpPost]
-        public ActionResult Index(CalcModel calc, string calculate)
+        public ActionResult Index(CalcModel calc)
         {
-            if(calculate == "calc")
+            try
             {
                 char[] сharList = { '+', '-', '*', '/', 'C' };
                 var input = calc.Example;
@@ -33,22 +33,16 @@ namespace CalculatorMVC_SolbegSoft_.Controllers
                     .ToArray();
 
                 calc.Example = Convert.ToString(CalcModel.Calculation(nums[0], nums[1], oper));
-                var test = CalcModel.Calculation(nums[0], nums[1], oper);
-
                 return View(calc);
             }
-            else
+            catch(Exception)
             {
-                if (calculate == "clear")
-                {
-                    calc.Example = "";
-                    return View(calc);
-                }
-                calc.Example += calculate;
-                    return View(calc);
+                calc.Example = "Execution error";
+                return View(calc);
             }
-           
+                
+
+
         }
-      
     }
 }
