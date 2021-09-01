@@ -22,7 +22,7 @@ namespace CalculatorMVC_SolbegSoft_.Controllers
             try
             {
                 char[] сharList = { '+', '-', '*', '/', 'C' };
-                var input = calc.Example;
+                var input = calc.Example.Replace(".",",");
                 char oper = сharList.First(input.Contains);
                 if (oper == 'C' || oper == 'С')
                 {
