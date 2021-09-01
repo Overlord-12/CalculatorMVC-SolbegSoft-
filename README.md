@@ -1,5 +1,5 @@
 # CalculatorMVC-SolbegSoft-
-                                                                         User's Guide
+                                                                  User's Guide
 1. To use the calculator, you need to go to the url - https://localhost:44376/Home
 
 
@@ -33,7 +33,7 @@ Illustration 1.5(Button clear)
 
 5.  Also on the page on the left there is an instruction for use, which can help if a difficult situation.
 
-                                                                  Application Architecture 
+                                                              Application Architecture 
                                                                   
 1.  The application consists of 1 model, 1 controller, 1 view. There is also a js code that performs simple calculations, and there is also a style sheet
 2.  CalcModel contains the example property, which stores the expression necessary to calculate. There is also a 
