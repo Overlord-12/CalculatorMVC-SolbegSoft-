@@ -8,8 +8,9 @@ namespace CalculatorMVC_SolbegSoft_.Models
     public class CalcModel
     {
         public string Example { get; set; }
+        public string Exeption { get; set; }
 
-       public static double Calculation(double firsNumb, double secondNumb, char oper)
+       public static double Calculation(CalcModel calc,double firsNumb, double secondNumb, char oper)
        {
             switch (oper)
             {
@@ -22,12 +23,12 @@ namespace CalculatorMVC_SolbegSoft_.Models
                 case '/':
                     if (firsNumb == 0)
                     {
-                        Console.WriteLine("На ноль делить нельзя");
+                        calc.Exeption = "You can't divide it by zero";
                         return 0;
                     }
                     return firsNumb / secondNumb;
                 default:
-                    Console.WriteLine("Ошибка");
+                    Console.WriteLine("Exeption");
                     return 0;
             }
        }

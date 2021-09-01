@@ -32,12 +32,13 @@ namespace CalculatorMVC_SolbegSoft_.Controllers
                     .Select(double.Parse)
                     .ToArray();
 
-                calc.Example = Convert.ToString(CalcModel.Calculation(nums[0], nums[1], oper));
+                calc.Example = Convert.ToString(CalcModel.Calculation(calc,nums[0], nums[1], oper));
                 return View(calc);
             }
             catch(Exception)
             {
-                calc.Example = "Execution error";
+                calc.Exeption = "Execution error";
+                calc.Example = "";
                 return View(calc);
             }
                 
